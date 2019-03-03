@@ -12,5 +12,5 @@ import 'es6-promise/auto';
 import App from './components/app';
 
 
-// Render back app into element with the id of index.
+// Render app into element with the id of index.
 ReactDOM.render(<App />, document.getElementById('index'));

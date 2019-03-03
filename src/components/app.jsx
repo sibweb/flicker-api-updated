@@ -67,7 +67,7 @@ export default class App extends React.Component {
 
     return (
       <Container fluid>
-        {/* Header to people know where they are */}
+        {/* Header for people to know where they are */}
         <Header as="h1" icon textAlign="center">
           <Icon name="flickr" />
           Flickr feed

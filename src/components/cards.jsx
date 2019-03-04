@@ -26,12 +26,16 @@ export default class Cards extends React.Component {
         if (item.author.length > 1) {
           // match the text inside the brackets on the username.
           const getName = item.author.match(/\("(.*)"\)/);
-          author = <a style={{ textDecoration: 'underline' }} target="_blank" rel="noopener noreferrer" href={`http://www.flickr.com/photos/${item.author_id}`}>{getName[1]}</a>;
+          author = (
+            <a style={{ textDecoration: 'underline' }} target="_blank" rel="noopener noreferrer" href={`http://www.flickr.com/photos/${item.author_id}`}>
+              {`By ${getName[1]}`}
+            </a>
+          );
         }
         // Check we have tags
         if (item.tags.length > 1) {
           // eslint-disable-next-line prefer-destructuring
-          tags = item.tags;
+          tags = `Tags: ${item.tags}`;
         }
         const image = item.media.m ? item.media.m : 'https://react.semantic-ui.com/images/wireframe/white-image.png';
         cards.push(
@@ -40,14 +44,10 @@ export default class Cards extends React.Component {
             <Card.Content>
               <Card.Header style={{ wordBreak: 'break-all' }}>{title}</Card.Header>
               <Card.Meta style={{ wordBreak: 'break-all' }}>
-                <strong>By</strong>
-                {' '}
                 {author}
               </Card.Meta>
             </Card.Content>
             <Card.Content extra style={{ wordBreak: 'break-all' }}>
-              <strong>Tags: </strong>
-              {' '}
               {tags}
             </Card.Content>
           </Card>,
